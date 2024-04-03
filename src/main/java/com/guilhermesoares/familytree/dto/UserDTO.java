@@ -1,6 +1,8 @@
 package com.guilhermesoares.familytree.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.guilhermesoares.familytree.domain.User;
 
@@ -10,6 +12,8 @@ public class UserDTO implements Serializable{
 	private String id;
 	private String name;
 	private Integer age;
+	
+	private List<FamilyDTO> family = new ArrayList<>();
 	
 	public UserDTO() {
 	}
@@ -23,6 +27,7 @@ public class UserDTO implements Serializable{
 		this.id = obj.getId();
 		this.name = obj.getName();
 		this.age = obj.getAge();
+		this.family = new ArrayList<>(obj.getFamily());
 	}
 
 	public String getId() {
@@ -49,5 +54,11 @@ public class UserDTO implements Serializable{
 		this.age = age;
 	}
 	
-	
+	public List<FamilyDTO> getFamily() {
+		return family;
+	}
+
+	public void setFamily(List<FamilyDTO> family) {
+		this.family = family;
+	}
 }

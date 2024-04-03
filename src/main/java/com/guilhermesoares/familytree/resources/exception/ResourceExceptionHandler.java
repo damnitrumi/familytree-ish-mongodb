@@ -18,4 +18,11 @@ public class ResourceExceptionHandler {
 		StandardError err = new StandardError(System.currentTimeMillis(), status.value(), "Not Found", e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
 	}
+	
+	@ExceptionHandler(InvalidUserException.class)
+	public ResponseEntity<StandardError> InvalidFamilyDTO(InvalidUserException e, HttpServletRequest request){
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		StandardError err = new StandardError(System.currentTimeMillis(), status.value(), "Empty Or Null Family OBJ", e.getMessage(), request.getRequestURI());
+		return ResponseEntity.status(status).body(err);
+	}
 }

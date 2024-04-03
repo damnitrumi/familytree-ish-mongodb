@@ -27,8 +27,11 @@ public class Instantiation implements CommandLineRunner{
 		
 		userRepository.saveAll(Arrays.asList(guilherme, luiz));
 		
-		FamilyDTO p1 = new FamilyDTO(new UserDTO("Pai", 65));
-		guilherme.getFamily().add(p1);
+		FamilyDTO p1 = new FamilyDTO(new UserDTO("Jurandir", 64));
+		FamilyDTO p2 = new FamilyDTO(new UserDTO("Célia", 46));
+		FamilyDTO p3 = new FamilyDTO(new UserDTO("Mavih", 17));
+		
+		guilherme.getFamily().addAll(Arrays.asList(p1, p2, p3));
 		userRepository.save(guilherme);
 	}
 
